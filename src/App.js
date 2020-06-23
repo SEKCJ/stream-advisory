@@ -1,23 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
+import { Row, Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import './App.css';
 
 function App() {
+  const [password, setPassword] = useState('')
+
+  const checkPassword = () => {
+    if (password === 'hacker1') {
+      console.log('matches')
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
+        <Row>
+          <h1>Supper Important Company</h1>
+        </Row>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Row>
+          <Form>
+            <FormGroup >
+              <Row>
+                <Label>
+                  Enter Your Credentials to Start The Hack
+                </Label>
+              </Row>
+              <Row>
+                <Input
+                  type='password'
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className='w-100 mx-auto'
+                />
+              </Row>
+              <Button color='primary' className='my-2 w-50' onClick={checkPassword}>Confirm</Button>
+            </FormGroup>
+          </Form>
+        </Row>
       </header>
     </div>
   );
