@@ -24,7 +24,7 @@ function App() {
           : (
             <>
               <Row>
-                <h1>Supper Important Company</h1>
+                <h1>Super Important Company</h1>
               </Row>
               <img src={logo} className="App-logo" alt="logo" />
               <Row>
