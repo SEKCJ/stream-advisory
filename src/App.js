@@ -5,6 +5,7 @@ import './App.css';
 
 function App() {
   const [password, setPassword] = useState('')
+  const [matches, setMatches] = useState(false)
 
   const checkPassword = () => {
     if (password === 'hacker1') {
@@ -15,32 +16,42 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Row>
-          <h1>Supper Important Company</h1>
-        </Row>
-        <img src={logo} className="App-logo" alt="logo" />
-        <Row>
-          <Form>
-            <FormGroup >
+        {matches ? (
+          <Row>
+            <h1>Matches</h1>
+          </Row>
+        )
+          : (
+            <>
               <Row>
-                <Label>
-                  Enter Your Credentials to Start The Hack
-                </Label>
+                <h1>Supper Important Company</h1>
               </Row>
+              <img src={logo} className="App-logo" alt="logo" />
               <Row>
-                <Input
-                  type='password'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className='w-100 mx-auto'
-                />
+                <Form>
+                  <FormGroup >
+                    <Row>
+                      <Label>
+                        Enter Your Credentials to Start The Hack
+                  </Label>
+                    </Row>
+                    <Row>
+                      <Input
+                        type='password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className='w-100 mx-auto'
+                      />
+                    </Row>
+                    <Button color='primary' className='my-2 w-50' onClick={checkPassword}>Confirm</Button>
+                  </FormGroup>
+                </Form>
               </Row>
-              <Button color='primary' className='my-2 w-50' onClick={checkPassword}>Confirm</Button>
-            </FormGroup>
-          </Form>
-        </Row>
-      </header>
-    </div>
+            </>
+          )
+        }
+      </header >
+    </div >
   );
 }
 
